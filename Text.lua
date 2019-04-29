@@ -2,6 +2,7 @@ local ffi = require('ffi')
 local util = require('util')
 local iconv = require('iconv')
 local gl = require('gl')
+local glu = require('glu')
 
 local function Text(ui, opts)
    assert(opts.text)
@@ -84,7 +85,7 @@ local function Text(ui, opts)
       end
       return gl.FloatArray(vertex_attribs)
    end
-   local rm = gl.ResourceManager()
+   local rm = glu.ResourceManager()
    local vertex_shader = rm:Shader(gl.GL_VERTEX_SHADER)
    vertex_shader:ShaderSource [[
       #version 100

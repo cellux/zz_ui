@@ -1,6 +1,7 @@
 local ffi = require('ffi')
 local bit = require('bit')
 local gl = require('gl')
+local glu = require('glu')
 local iconv = require('iconv')
 local util = require('util')
 
@@ -329,7 +330,7 @@ local function Grid(ui, opts)
          needs_upload = false
       end
    end
-   local rm = gl.ResourceManager()
+   local rm = glu.ResourceManager()
    -- render cell background
    local bg_vertex_shader = rm:Shader(gl.GL_VERTEX_SHADER)
    bg_vertex_shader:ShaderSource [[

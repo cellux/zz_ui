@@ -1,5 +1,6 @@
 local ffi = require('ffi')
 local gl = require('gl')
+local glu = require('glu')
 
 local function TextureBlitter(ui, opts)
    opts = opts or {}
@@ -16,7 +17,7 @@ local function TextureBlitter(ui, opts)
         return texture2D(ftex, ftexcoord);
       ]]
    end
-   local rm = gl.ResourceManager()
+   local rm = glu.ResourceManager()
    local vertex_shader = rm:Shader(gl.GL_VERTEX_SHADER)
    vertex_shader:ShaderSource([[
       #version 100

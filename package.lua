@@ -2,6 +2,7 @@ return {
    package = "github.com/cellux/zz_ui",
    imports = {
       "github.com/cellux/zz_gl",
+      "github.com/cellux/zz_glu",
       "github.com/cellux/zz_sdl2",
       "github.com/cellux/zz_freetype"
    },
