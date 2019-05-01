@@ -14,7 +14,7 @@ local M = {}
 
 local Object = util.Class()
 
-function Object:create(opts)
+function Object:new(opts)
    local self = opts or {}
    return self
 end
@@ -27,7 +27,7 @@ end
 
 local Widget = util.Class(Object)
 
-function Widget:create(opts)
+function Widget:new(opts)
    local self = Object(opts)
    -- the post-layout location of the widget in screen cordinates
    -- this will be updated by self.parent:layout()
@@ -62,7 +62,7 @@ M.Widget = Widget
 
 local Container = util.Class(Widget)
 
-function Container:create(opts)
+function Container:new(opts)
    local self = Widget(opts)
    self.children = {}
    if self.selective_redraw then
@@ -221,7 +221,7 @@ local sdl_window_flags = {
 
 local Window = util.Class(Container)
 
-function Window:create(opts)
+function Window:new(opts)
    local self = Container {
       selective_redraw = opts.selective_redraw
    }
@@ -436,7 +436,7 @@ M.Window = Window
 
 local UI = util.Class(Container)
 
-function UI:create(window)
+function UI:new(window)
    -- window can be:
    --
    -- a) a Window object
