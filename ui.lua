@@ -400,7 +400,7 @@ function Window.RenderLoop(window, opts)
          measure(function() self:update(dt) end, 'update')
          if window.redraw_trigger then
             -- block until something needs to be redrawn
-            measure(function() window.redraw_trigger:poll() end, 'sleep')
+            measure(function() window.redraw_trigger:wait() end, 'sleep')
          else
             if frame_time > 0 then
                local next_frame_start = now + frame_time
